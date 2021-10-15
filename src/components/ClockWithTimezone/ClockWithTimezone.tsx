@@ -14,7 +14,7 @@ const ClockWithTimezone: React.FC<ClockWithTimezoneProps> = ({ timezones }) => {
 
 	const zones = timezones.map((zone) => {
 		return (
-			<option key={zone.name} value={zone.timezone.replace(/\D/, '')}>
+			<option key={zone.name} value={zone.timezone}>
 				{zone.name}
 			</option>
 		);

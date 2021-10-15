@@ -7,8 +7,8 @@ interface ClockProps {
 	timezone?: number;
 }
 
-const Clock: React.FC<ClockProps> = ({ timezone = 0 }) => {
-	const isTimezone = !!timezone ? true : false;
+const Clock: React.FC<ClockProps> = ({ timezone }) => {
+	const isTimezone = timezone === undefined ? false : true;
 
 	const [{ hours, minutes, seconds }, setTime] = useState(getTime(isTimezone));
 
@@ -21,14 +21,14 @@ const Clock: React.FC<ClockProps> = ({ timezone = 0 }) => {
 		return () => clearInterval(interval);
 	}, [isTimezone]);
 
-	const getHours = (hours: number, timezone: number) => {
+	const getHours = (hours: number, timezone: number = 0) => {
 		const timezoneHours = hours + timezone;
 
 		return timezoneHours >= 24 ? timezoneHours - 24 : timezoneHours;
 	};
 
 	const getZero = (time: number) => {
-		return time > 9 ? time : '0' + time;
+		return time > 9 ? `${time}` : `0${time}`;
 	};
 
 	const getDegreesByTime = (time: number, isHours: boolean = false) => {
