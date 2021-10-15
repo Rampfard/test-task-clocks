@@ -8,16 +8,18 @@ interface ClockProps {
 }
 
 const Clock: React.FC<ClockProps> = ({ timezone = 0 }) => {
-	const [{ hours, minutes, seconds }, setTime] = useState(getTime(!!timezone));
+	const isTimezone = !!timezone ? true : false;
+
+	const [{ hours, minutes, seconds }, setTime] = useState(getTime(isTimezone));
 
 	useEffect(() => {
 		let interval = setInterval(
-			() => setTime((state) => ({ ...state, ...getTime(!!timezone) })),
+			() => setTime((state) => ({ ...state, ...getTime(isTimezone) })),
 			1000
 		);
 
 		return () => clearInterval(interval);
-	}, []);
+	}, [isTimezone]);
 
 	const getHours = (hours: number, timezone: number) => {
 		const timezoneHours = hours + timezone;
