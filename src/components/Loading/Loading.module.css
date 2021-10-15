@@ -1,0 +1,39 @@
+.loading {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	font-size: 1.3rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.spinner {
+	display: inline-block;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border: 2px solid var(--gray-dark);
+	border-radius: 50%;
+	animation: rotation 1s linear infinite;
+	margin-right: 0.5rem;
+}
+
+.spinner:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 0;
+	background: var(--secondary-color);
+	width: 3px;
+	height: calc(30px / 2);
+	transform: translateX(-50%);
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
