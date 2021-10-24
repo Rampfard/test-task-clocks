@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ClockWithTimezone from './components/ClockWithTimezone/ClockWithTimezone';
-import Loading from './components/Loading/Loading';
+import { Container, Loading, ClockWithTimezone } from './components';
 
 import { getTimezones } from './store/actions/time';
 import { RootState } from './store/reducers';
@@ -9,42 +8,40 @@ import { RootState } from './store/reducers';
 import classes from './App.module.css';
 
 function App() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const {
-		time: { timezones },
-		ui: {
-			requestStatus: { status, error },
-		},
-	} = useSelector((state: RootState) => state);
+  const {
+    ui: {
+      requestStatus: { status, error },
+    },
+  } = useSelector((state: RootState) => state);
 
-	useEffect(() => {
-		dispatch(getTimezones());
-		return () => {};
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(getTimezones());
+  }, [dispatch]);
 
-	if (status === 'error') {
-		return (
-			<div className={classes.container}>
-				<div className={classes.error}>{error}</div>;
-			</div>
-		);
-	}
+  if (status === 'error') {
+    return (
+      <Container>
+        <div className={classes.error}>{error}</div>;
+      </Container>
+    );
+  }
 
-	if (status === 'pending' || !timezones.length) {
-		return (
-			<div className={classes.container}>
-				<Loading />
-			</div>
-		);
-	}
+  if (status === 'pending') {
+    return (
+      <Container>
+        <Loading />
+      </Container>
+    );
+  }
 
-	return (
-		<div className={classes.container}>
-			<ClockWithTimezone timezones={timezones} />
-			<ClockWithTimezone timezones={timezones} />
-		</div>
-	);
+  return (
+    <Container>
+      <ClockWithTimezone />
+      <ClockWithTimezone />
+    </Container>
+  );
 }
 
 export default App;

@@ -4,8 +4,8 @@ import { time } from './time';
 import { ui } from './ui';
 
 const rootReducers = combineReducers({
-	time,
-	ui,
+  time,
+  ui,
 });
 
 export type RootState = ReturnType<typeof rootReducers>;

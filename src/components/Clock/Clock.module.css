@@ -1,99 +1,99 @@
 .clock-container {
-	display: flex;
-	flex-direction: column;
-	max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
 }
 
 .clock {
-	position: relative;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	border: 2px solid var(--primary-color);
-	background-color: #dddddd;
-	margin-bottom: 1.5rem;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  background-color: #dddddd;
+  margin-bottom: 1.5rem;
 }
 
 .hour-hand,
 .minute-hand,
 .second-hand {
-	background-color: var(--gray-dark);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	height: 40px;
-	width: 3px;
-	transform-origin: bottom center;
-	/* transition: all 0.5s ease-in; */
+  background-color: var(--gray-dark);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  width: 3px;
+  transform-origin: bottom center;
+  /* transition: all 0.5s ease-in; */
 }
 
 .hour-hand {
-	transform: translate(-50%, -100%) rotate(0deg);
+  transform: translate(-50%, -100%) rotate(0deg);
 }
 
 .minute-hand {
-	transform: translate(-50%, -100%) rotate(0deg);
-	height: 80px;
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 80px;
 }
 
 .second-hand {
-	transform: translate(-50%, -80%) rotate(0deg);
-	height: 110px;
-	transform-origin: center 80%;
-	background-color: var(--secondary-color);
+  transform: translate(-50%, -80%) rotate(0deg);
+  height: 110px;
+  transform-origin: center 80%;
+  background-color: var(--secondary-color);
 }
 
 .center-point {
-	background-color: var(--secondary-color);
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
+  background-color: var(--secondary-color);
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 }
 
 .center-point::after {
-	content: '';
-	background-color: var(--primary-color);
-	position: absolute;
-	width: 5px;
-	height: 5px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 50%;
+  content: '';
+  background-color: var(--primary-color);
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 }
 
 .lines {
-	position: absolute;
-	width: 90%;
-	height: 90%;
-	border-radius: 50%;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .line {
-	position: absolute;
-	width: 100%;
-	height: 3px;
-	top: calc(50% - 0.1rem);
-	display: flex;
-	justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: calc(50% - 0.1rem);
+  display: flex;
+  justify-content: space-between;
 }
 
 .line:before,
 .line:after {
-	content: '';
-	height: 100%;
-	width: 10px;
-	background-color: var(--primary-color);
+  content: '';
+  height: 100%;
+  width: 10px;
+  background-color: var(--primary-color);
 }
 
 .time {
-	font-size: 24px;
-	text-align: center;
+  font-size: 24px;
+  text-align: center;
 }
